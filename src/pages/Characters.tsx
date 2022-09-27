@@ -1,12 +1,13 @@
 import React from 'react'
 
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
 import { fetchCharacters } from '../redux/slices/Categories'
 import { useAppDispatch, useAppSelector } from '../redux/store/hooks'
 
 
 export const Characters = () => {
+
   const dispatch = useAppDispatch();
   const { characters } = useAppSelector(state => state.categories)
 
@@ -17,13 +18,10 @@ export const Characters = () => {
   }, []);
 
   return (
-    <div className='h-screen w-screen'>
+    <div className=''>
       {isCharactersLoading
         ? <div className='text-white'>Loading</div>
         : <div>
-          <div className='text-white h-[20%]'>
-            Header
-          </div>
           <div className='text-white w-[85%] h-[80%] text-center m-auto  grid grid-cols-5'>{characters.items.map((character, index) => (
 
             <Link to={`/character/${index + 1}`}>
