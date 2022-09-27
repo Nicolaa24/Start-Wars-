@@ -7,7 +7,7 @@ interface Props {
 
 export const CharacterDetails: React.FC<Props> = ({ character }) => {
   return (
-    <div className='bg-yellow-300 w-full p-4 text-xl '>
+    <div className='bg-yellow-300 w-full p-6 text-xl '>
       <h1 className='mb-1'>{character?.name}</h1>
       <div className='text-base h-full text-gray-500 flex flex-col'>
         <p >Birth Year: {character?.birth_year}</p>

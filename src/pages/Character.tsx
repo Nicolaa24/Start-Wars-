@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { useParams, useNavigate} from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 import { BASE_URL, getInfo } from '../utils/service/api';
 import {Peoples} from '../types/Interfaces'
@@ -31,7 +31,7 @@ export const Character = () => {
       </button>
 
       <div className='w-[70%] h-[40%] flex flex-row m-auto mb-6 rounded-sm'>
-        <CharacterImage id={id} />
+        <CharacterImage id={id} character={ character} />
         <CharacterDetails character={character} />
       </div>
 

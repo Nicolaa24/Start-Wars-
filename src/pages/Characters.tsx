@@ -26,12 +26,12 @@ export const Characters = () => {
 
             <Link to={`/character/${index + 1}`}>
               <div className='h-full mb-2 mr-4'>
-              <div className='w-full h-full'>
+                <div className='w-full h-full'>
                 
-                <img className='h-[90%] w-full object-cover ' src={`https://starwars-visualguide.com/assets/img/characters/${index + 1}.jpg`} />
-                <span>{character.name}</span>
+                  <img className='h-[90%] w-full object-cover ' src={`https://starwars-visualguide.com/assets/img/characters/${index + 1}.jpg`} />
+                  <span>{character.name}</span>
+                </div>
               </div>
-            </div>
             </Link>
          
           ))}</div>
