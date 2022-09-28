@@ -8,13 +8,16 @@ import { store } from './redux/store/store'
 
 import {App} from './App'
 import './index.css'
+import { ThemeProvider } from './utils/context/ThemeProvider'
 
 
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <Provider store={store}>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <ThemeProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </ThemeProvider>
   </Provider>
 );
