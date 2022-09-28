@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Link, useParams } from 'react-router-dom'
 
-import { fetchCharacters } from '../redux/slices/Categories'
+import { fetchCharacters } from '../redux/slices/CategoriesSlice'
 import { useAppDispatch, useAppSelector } from '../redux/store/hooks'
 
 

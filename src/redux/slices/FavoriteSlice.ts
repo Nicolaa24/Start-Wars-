@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface oneItem {
   title: string | undefined;
-  img: string | undefined;
+  id: string | undefined;
 }
 
 interface InitialState {
@@ -19,6 +19,9 @@ export const favoriteSlice = createSlice({
   reducers: {
     addItem: (state, action:PayloadAction<oneItem>) => {
       state.favorites.push(action.payload)
+    },
+    removeItem: (state, action:PayloadAction<string | undefined>) => {
+      state.favorites = state.favorites.filter(item =>item.id !== action.payload)
     }
   }
 })

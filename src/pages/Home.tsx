@@ -6,7 +6,7 @@ import { categoriesName } from '../assets/json';
 export const Home = () => {
 
   return (
-    <div className='my-6'>
+    <div className='my-6 h-screen'>
 
       <div className='w-[80%] h-[80%] text-center m-auto  grid grid-cols-3'>
         {

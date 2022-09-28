@@ -9,17 +9,25 @@ import { CharacterStarships } from '../components/Character/CharacterStarships';
 import { CharacterVehicles } from '../components/Character/CharacterVehicles';
 import { CharacterDetails } from '../components/Character/CharacterDetails';
 import { CharacterImage } from '../components/Character/CharacterImage';
+import { useAppSelector } from '../redux/store/hooks';
 
 
 export const Character = () => {
-
   const [character, setCharacter] = React.useState<Peoples>();
+  const [favoriteCharacter, setFavoriteCharacter] = React.useState(false);
+
+  const favorites = useAppSelector(state => state.favorite.favorites)
 
   const navigate = useNavigate()
   const { id } = useParams();
 
   React.useEffect(() => {
     getInfo(BASE_URL, 'people', id, setCharacter);
+
+    favorites.find(item => item.id === id)
+      ? setFavoriteCharacter(true)
+      : setFavoriteCharacter(false);
+    
   }, []);
   
   return (
@@ -31,7 +39,12 @@ export const Character = () => {
       </button>
 
       <div className='w-[70%] h-[40%] flex flex-row m-auto mb-6 rounded-sm'>
-        <CharacterImage id={id} character={ character} />
+        <CharacterImage
+          id={id}
+          character={character}
+          favoriteCharacter={favoriteCharacter}
+          setFavoriteCharacter={setFavoriteCharacter}
+        />
         <CharacterDetails character={character} />
       </div>
 

@@ -1,19 +1,18 @@
 import React from 'react'
-import { Route, Routes } from 'react-router-dom'
-import { Header } from './components/Header/Header'
-import { Character } from './pages/Character'
+import { Route, Routes } from 'react-router-dom';
 
-import { Characters } from './pages/Characters'
-import { Favorites } from './pages/Favorites'
-import { Films } from './pages/Films'
-import { Home } from './pages/Home'
+import { Header } from './components/Header/Header';
+import { Character } from './pages/Character';
+import { Characters } from './pages/Characters';
+import { Favorites } from './pages/Favorites';
+import { Films } from './pages/Films';
+import { Home } from './pages/Home';
 
 
 export const App = () => {
-
   return (
-    <div className='h-screen w-screen bg-black '>
-      
+    <div className='h-full w-screen bg-black '>
+
       <Header/>
       
       <Routes>
