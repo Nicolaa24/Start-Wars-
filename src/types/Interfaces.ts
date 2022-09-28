@@ -1,3 +1,5 @@
+import { oneItem } from "../redux/slices/FavoriteSlice";
+
 export interface Peoples {
   name: string;
   height: string;
@@ -17,3 +19,6 @@ export interface Peoples {
   url: string;
 }
 
+export interface localStorageData {
+  favorites: oneItem[]
+}
