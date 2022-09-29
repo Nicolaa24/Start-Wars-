@@ -29,4 +29,13 @@ export const categoriesName = [
     name: 'Planets',
     link: '/planets'
   },
-]
+];
+
+export const categorySeatchSelector = [
+  { value: 'people', name: 'Characters' },
+  { value: 'films', name: 'Films' },
+  { value: 'planets', name: 'Planets' },
+  { value: 'species', name: 'Species' },
+  { value: 'starships', name: 'Starships' },
+  { value: 'vehicles', name: 'Vehicles' }
+];

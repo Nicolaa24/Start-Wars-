@@ -9,6 +9,7 @@ import { Films } from './pages/Films';
 import { Categories } from './pages/Categories';
 import { Home } from './pages/Home';
 import { useTheme } from './utils/context/useTheme';
+import { Search } from './pages/Search';
 
 export const App = () => {
   const { color } = useTheme();
@@ -21,6 +22,7 @@ export const App = () => {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/categories' element={<Categories />} />
+        <Route path='/search' element={<Search />} />
         <Route path='/films' element={<Films />} />
         <Route path='/characters' element={<Characters />} />
         <Route path='/character/:id' element={<Character />} />

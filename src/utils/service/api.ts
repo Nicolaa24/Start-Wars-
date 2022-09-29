@@ -7,3 +7,6 @@ export const getInfo = async (url:string, category:string,id:string | undefined,
     await fn(res.data)
   }
 
+export const getItemId = (url: string) => {
+  return url.substring(url.length - 1, url.length - 2)
+};

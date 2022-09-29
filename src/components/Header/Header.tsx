@@ -33,7 +33,7 @@ export const Header = () => {
             }
             
           </Link>
-          <Link className='text-purple-400 text-xl ml-5 flex items-center' to=''>
+          <Link className='text-purple-400 text-xl ml-5 flex items-center' to='/search'>
             Search
           </Link>
         </div>
