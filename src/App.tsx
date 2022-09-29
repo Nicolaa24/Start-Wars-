@@ -8,11 +8,13 @@ import { Favorites } from './pages/Favorites';
 import { Films } from './pages/Films';
 import { Categories } from './pages/Categories';
 import { Home } from './pages/Home';
-
+import { useTheme } from './utils/context/useTheme';
 
 export const App = () => {
+  const { color } = useTheme();
+
   return (
-    <div className='h-full w-screen bg-black '>
+    <div className={`bg-${color}`}>
 
       <Header/>
       
