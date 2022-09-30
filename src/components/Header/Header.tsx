@@ -13,7 +13,7 @@ export const Header = () => {
     <div className='w-full h-[20%]  '>
 
       <div className='flex flex-col'>
-        <div className='flex flex-row mx-5 mt-5'>
+        <div className='flex flex-row mx-6 mt-5'>
 
           <Link to='/'>
     
@@ -23,7 +23,7 @@ export const Header = () => {
            
           </Link>
 
-          <Link className='text-purple-400 text-xl relative ml-4 flex items-center' to='/favorite'>
+          <Link className='text-purple-400 text-xl relative mx-6 flex items-center' to='/favorite'>
             Favorite
             {favorites.length !== 0
               ? <span className='bg-white text-sm absolute top-1 right-[-8px] px-[5px] rounded-full'>
@@ -33,7 +33,7 @@ export const Header = () => {
             }
             
           </Link>
-          <Link className='text-purple-400 text-xl ml-5 flex items-center' to='/search'>
+          <Link className='text-purple-400 text-xl ml-3 flex items-center' to='/search'>
             Search
           </Link>
         </div>

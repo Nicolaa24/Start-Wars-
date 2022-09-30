@@ -4,6 +4,7 @@ import { Link, useParams } from 'react-router-dom'
 
 import { fetchCharacters } from '../redux/slices/CategoriesSlice'
 import { useAppDispatch, useAppSelector } from '../redux/store/hooks'
+import { IMG_URL } from '../utils/service/api';
 
 
 export const Characters = () => {
@@ -28,7 +29,7 @@ export const Characters = () => {
               <div className='h-full mb-2 mr-4'>
                 <div className='w-full h-full'>
                 
-                  <img className='h-[90%] w-full object-cover ' src={`https://starwars-visualguide.com/assets/img/characters/${index + 1}.jpg`} />
+                  <img className='h-[90%] w-full object-cover ' src={`${IMG_URL}${index + 1}.jpg`} />
                   <span>{character.name}</span>
                 </div>
               </div>

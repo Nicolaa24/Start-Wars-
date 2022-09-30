@@ -11,7 +11,8 @@ interface Props {
 
 export const CategorySelect:React.FC<Props> = ({selectedCategory, setSelectedCategory,categorySeatchSelector}) => {
   return (
-    <select value={selectedCategory} onChange={(e) => setSelectedCategory(e.target.value)}>
+    <select className='p-1 rounded-sm'
+      value={selectedCategory} onChange={(e) => setSelectedCategory(e.target.value)}>
             <option disabled value="">
               {" "}
               Categories
