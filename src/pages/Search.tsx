@@ -1,13 +1,14 @@
-import axios, {AxiosError} from 'axios';
-import React from 'react'
+import React from 'react';
 
-import { debounce } from 'lodash';
+import axios, { AxiosError } from 'axios';
 
 import { BASE_URL, getItemId } from '../utils/service/api';
 import {Peoples, Film} from '../types/Interfaces'
 import { categorySeatchSelector } from '../assets/json';
 import { CategorySelect } from '../components/UI/select/CategorySelect';
 import { SearchItem } from '../components/Search/SearchItem';
+import {useDebounce} from '../utils/service/debounce';
+import { Input } from '../components/UI/input/Input';
 
 export interface FoundItem {
   id: string;
@@ -26,6 +27,7 @@ export const Search = () => {
 
   const getSearchItem = async (param: string) => {
     try {
+      console.log(param)
       const res = await axios.get(`${BASE_URL}${selectedCategory}/?search=${param}`);
     
       const searchingResults = res.data.results.map((item: SearchItem) => {
@@ -45,20 +47,17 @@ export const Search = () => {
       console.log(error)
     }
   }
-  
-  // React.useEffect(() => {
-  //   getSearchItem('')
-  // }, []);
 
-  //FIX AND SPREAD FNC DEBOUNCE
-  // const debounceGetResponse = React.useCallback(
-  //   debounce((value: string) => getSearchItem(value), 300),
-  //   []
-  // );
-  
+  const debouncedSearch = useDebounce(search, 300);
+
+  React.useEffect(() => {
+    getSearchItem(debouncedSearch)
+    if (debouncedSearch) getSearchItem(debouncedSearch)
+  }, [debouncedSearch]);
+    
   const handleSearch = (item: string) => {
     setSearch(item)
-    getSearchItem(item)
+    // getSearchItem(item)
   }
 
   return (
@@ -72,15 +71,15 @@ export const Search = () => {
           setSelectedCategory={setSelectedCategory}
           categorySeatchSelector={categorySeatchSelector}
         />
-        <input
-        className='outline-none mx-7 rounded-sm p-1'
-        type='text'
-        value={search}
-        onChange={(e) => handleSearch(e.target.value)}
-      />
+       
+        <Input
+          search={search}
+          setSearch={setSearch}
+          handleSearch={handleSearch}
+        />        
       </div>
 
-      <SearchItem searchItems={foundItems} />   
+      <SearchItem searchItems={foundItems} />
       
     </div>
   )

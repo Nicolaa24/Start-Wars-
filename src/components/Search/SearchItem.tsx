@@ -19,7 +19,7 @@ export const SearchItem: React.FC<Props> = ({ searchItems }) => {
                 to={`/${searchItem.category === 'people' ? searchItem.category = 'character' : searchItem.category}/${searchItem.id}`}
               >
                 <li
-                  className='h-[180px] mb-6 mr-4  text-white flex items-center '
+                  className='h-[190px] mb-6 mr-4  text-white flex items-center '
                   key={Math.random()}>
                   <img
                     className='h-full rounded-md '
