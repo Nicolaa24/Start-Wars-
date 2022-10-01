@@ -5,7 +5,7 @@ import { Pagination } from '../components/Pagination/Pagination';
 
 import { categoriesSlice, fetchCharacters } from '../redux/slices/CategoriesSlice'
 import { useAppDispatch, useAppSelector } from '../redux/store/hooks'
-import { IMG_URL } from '../utils/service/api';
+import { getItemId, IMG_URL } from '../utils/service/api';
 
 
 export const Characters = () => {
@@ -31,11 +31,11 @@ export const Characters = () => {
           <div className='text-white w-[85%] h-[80%] text-center m-auto  grid grid-cols-5'>
             {characters.items.map((character, index) => (
 
-              <Link to={`/character/${index + 1}`}>
-                <div className='h-full mb-2 mr-4'>
+              <Link to={`/character/${getItemId(character.url)}`}>
+                <div className='h-full mb-5 mr-4'>
                   <div className='w-full h-full'>
                 
-                    <img className='h-[90%] w-full object-cover ' src={`${IMG_URL}${index + 1}.jpg`} />
+                    <img className='h-[90%] w-full object-cover rounded-md hover:h-[95%]' src={`${IMG_URL}characters/${getItemId(character.url)}.jpg`} />
                     <span>{character.name}</span>
                   </div>
                 </div>

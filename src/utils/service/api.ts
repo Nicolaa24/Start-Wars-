@@ -1,12 +1,19 @@
 import axios, { AxiosError } from "axios";
 
 export const BASE_URL = 'https://swapi.dev/api/';
-export const IMG_URL = `https://starwars-visualguide.com/assets/img/characters/`;
+export const IMG_URL = `https://starwars-visualguide.com/assets/img/`;
 
-export const getInfo = async (url:string, category:string,id:string | undefined, fn:React.Dispatch<React.SetStateAction<any>>) => {
+export const getInfo = async (url: string, category: string, id: string | undefined, fn: React.Dispatch<React.SetStateAction<any>>) => {
+  
+  try {
     const res = await axios.get(`${url}${category}/${id}/`);
     await fn(res.data)
+  } catch (e) {
+    const err = e as AxiosError;
+    console.log(err)
   }
+   
+};
 
 export const getItemId = (url: string) => {
   const res = url.substring(url.length - 1, url.length - 3)

@@ -28,7 +28,7 @@ export const Pagination: React.FC<Props> = ({ currentPage, totalPage }) => {
         {currentPage === 1
           ? <button
             disabled
-            className='text-white bg-gray-400 mx-3 px-5 p-2 rounded-xl hover:text-black hover:font-semibold'
+            className='text-white bg-gray-400 mx-3 px-5 p-2 rounded-xl'
             onClick={() => handlePrevPage(currentPage)}>
             Prev Page
           </button>
@@ -41,7 +41,7 @@ export const Pagination: React.FC<Props> = ({ currentPage, totalPage }) => {
         {<div className='text-white mt-1 mx-1 text-2xl'>{currentPage}</div>}
         {currentPage === totalPage
           ? <button disabled
-            className='text-white bg-gray-400 mx-3 px-5 p-2 rounded-xl hover:text-black hover:font-semibold'
+            className='text-white bg-gray-400 mx-3 px-5 p-2 rounded-xl'
             onClick={() => handleNextPage(currentPage)}>
             Next Page
           </button>

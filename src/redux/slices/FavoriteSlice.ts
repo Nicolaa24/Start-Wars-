@@ -5,6 +5,7 @@ import { getLocalStorage } from "../../utils/service/localStorage";
 export interface oneItem {
   title: string | undefined;
   id: string | undefined;
+  category: string
 }
 
 interface InitialState {
@@ -17,11 +18,12 @@ export const favoriteSlice = createSlice({
   name: 'favorite',
   initialState,
   reducers: {
-    addItem: (state, action:PayloadAction<oneItem>) => {
+    addItem: (state, action: PayloadAction<oneItem>) => {
       state.favorites.push(action.payload)
     },
-    removeItem: (state, action:PayloadAction<string | undefined>) => {
-      state.favorites = state.favorites.filter(item =>item.id !== action.payload)
+    removeItem: (state, action: PayloadAction< oneItem>) => {
+      state.favorites = state.favorites.filter(item => item.category !==action.payload.category || item.id !== action.payload.id
+      )
     }
   }
 })

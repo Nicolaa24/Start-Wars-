@@ -11,6 +11,7 @@ import { Home } from './pages/Home';
 import { useTheme } from './utils/context/useTheme';
 import { Search } from './pages/Search';
 import { NotFound } from './pages/NotFound';
+import { Film } from './pages/Film';
 
 export const App = () => {
   const { color } = useTheme();
@@ -18,18 +19,23 @@ export const App = () => {
   return (
     <div className={`bg-${color}`}>
 
-      <Header/>
+      <Header />
       
       <Routes>
         <Route path='/' element={<Home />} />
+
         <Route path='/categories' element={<Categories />} />
-        <Route path='/search' element={<Search />} />
+        
         <Route path='/films' element={<Films />} />
         <Route path='/characters' element={<Characters />} />
+
+        <Route path='/film/:id' element={<Film />} />
         <Route path='/character/:id' element={<Character />} />
+
+        <Route path='/search' element={<Search />} />
         <Route path='/favorite' element={<Favorites />} />
-        <Route path='*' element={<NotFound/>} />
+        <Route path='*' element={<NotFound />} />
       </Routes>
     </div>
   )
-}
+};

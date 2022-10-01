@@ -2,20 +2,22 @@ import React from 'react'
 import {BsFillStarFill  } from 'react-icons/bs'
 import { favoriteSlice } from '../../redux/slices/FavoriteSlice';
 import { useAppDispatch, useAppSelector } from '../../redux/store/hooks';
-import { Peoples } from '../../types/Interfaces';
+import { IFilm, Peoples } from '../../types/Interfaces';
 
 interface Props {
   id: string | undefined;
-  character: Peoples | undefined;
+  film: IFilm | undefined;
   favoriteCharacter: boolean;
-  setFavoriteCharacter:React.Dispatch<React.SetStateAction<boolean>>
+  setFavoriteCharacter: React.Dispatch<React.SetStateAction<boolean>>;
+  category: string;
 }
 
-export const CharacterImage: React.FC<Props> = (
+export const FilmImage: React.FC<Props> = (
   { id,
-  character,
-  favoriteCharacter,
-  setFavoriteCharacter }
+    film,
+    category,
+    favoriteCharacter,
+    setFavoriteCharacter }
 ) => {
   const dispatch = useAppDispatch()
   const { addItem, removeItem } = favoriteSlice.actions
@@ -23,17 +25,17 @@ export const CharacterImage: React.FC<Props> = (
   const dispatchFavoriteItem = () => {
     if (favoriteCharacter) {
       const item = {
-        title: character?.name,
+        title: film?.title,
         id: id,
-        category: 'characters'
+        category: category,
       }
       dispatch(removeItem(item))
       setFavoriteCharacter(false);
     } else {
       const item = {
-        title: character?.name,
+        title: film?.title,
         id: id,
-        category: 'characters'
+        category: category,
       }
 
       dispatch(addItem(item))
@@ -43,8 +45,8 @@ export const CharacterImage: React.FC<Props> = (
 
   return (
     <div className='w-[45%] h-full relative'>
-      <img className='h-full w-full object-fill '
-        src={`https://starwars-visualguide.com/assets/img/characters/${id}.jpg`}
+      <img className='h-[90%] w-full object-cover'
+        src={`https://starwars-visualguide.com/assets/img/films/${id}.jpg`}
       />
       <button className='text-white absolute  top-[-19px] right-1'
           onClick={dispatchFavoriteItem}

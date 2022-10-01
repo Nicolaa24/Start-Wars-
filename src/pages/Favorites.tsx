@@ -13,16 +13,23 @@ export const Favorites = () => {
       </div>
     )
   }
+  const getCategoryLink = (categoryName: string) => {
+    const name = categoryName
+    if (name[categoryName.length - 1] === 's') {
+      return name.substring(0,name.length-1)
+    }
+    return name
+  }
 
   return (
     <div className='text-white w-[85%] h-screen text-center m-auto  grid grid-cols-5 bg-black'>
       {favorites.map((item) => (
-        <Link to={`/character/${item.id}`}>
+        <Link to={`/${getCategoryLink(item.category)}/${item.id}`}>
           <div className='h-[150px] mb-2 mr-4 text-white'>
           <div className='w-full h-full'>
                 
             <img className='h-[90%] w-full object-contain '
-              src={`https://starwars-visualguide.com/assets/img/characters/${item?.id}.jpg`} />
+              src={`https://starwars-visualguide.com/assets/img/${item.category}/${item?.id}.jpg`} />
             <span className='text-white'>{item?.title}</span>
           </div>
         </div>

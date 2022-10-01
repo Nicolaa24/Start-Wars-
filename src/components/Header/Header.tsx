@@ -37,7 +37,7 @@ export const Header = () => {
             Search
           </Link>
         </div>
-        <h1 className='max-w-[300px] h-[5%] ml-auto mr-auto  mb-5 text-yellow-400 text-4xl'>
+        <h1 className='max-w-[300px] h-[5%] ml-auto mr-auto  mb-5 text-yellow-400 text-4xl hover:text-[40px]'>
           <Link to='/categories'>
             Star Wars Info
           </Link>
