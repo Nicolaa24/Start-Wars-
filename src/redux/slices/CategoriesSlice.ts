@@ -1,39 +1,46 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 import { BASE_URL } from '../../utils/service/api';
 
-interface Characters {
-  name: string;
+export interface Characters {
+  name?: string;
+  title?:string
   url: string;
 }
 
-interface initialStateCategories {
+export interface initialStateCategories {
   characters: {
+    currentPage: number
     items: Characters[];
     status: string;
   }
 }
 
-export const fetchCharacters = createAsyncThunk<{ data: Characters[] }>('characters/fetchCharacters',
-  async () => {
-  const res = await axios.get(`${BASE_URL}people`)
-  const data:Characters[] = res.data.results;
-  return { data };
-}
-)
-
 const initialState:initialStateCategories = {
   characters: {
     items: [],
-    status: 'Loading'
+    status: 'Loading',
+    currentPage: 1
   }
 }
 
-const categoriesSlice = createSlice({
+export const fetchCharacters = createAsyncThunk<{ data: Characters[]}, {page:number, category:string}>('characters/fetchCharacters',
+  async({page, category}) => {
+  const res = await axios.get(`${BASE_URL}${category}/?page=${page}`)
+  const data:Characters[] = res.data.results;
+  return { data};
+}
+)
+
+export const categoriesSlice = createSlice({
   name: 'categories',
   initialState,
-  reducers: {},
+  reducers: {
+    setCurrentPage(state, action:PayloadAction<number>) {
+      state.characters.currentPage = action.payload;
+    }
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchCharacters.pending, (state) => {
@@ -41,7 +48,7 @@ const categoriesSlice = createSlice({
         state.characters.status = 'Loading';
       })
       .addCase(fetchCharacters.fulfilled, (state, action) => {
-        state.characters.items = action.payload.data;
+        state.characters.items = action.payload.data ;
         state.characters.status = 'Loaded';
       })
       .addCase(fetchCharacters.rejected, (state) => {
