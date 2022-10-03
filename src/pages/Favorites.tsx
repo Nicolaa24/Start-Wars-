@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { useAppSelector } from '../redux/store/hooks'
+import { getCategoryLink } from '../utils/service/api';
 
 export const Favorites = () => {
 
@@ -12,14 +13,7 @@ export const Favorites = () => {
       You don't have favorite items
       </div>
     )
-  }
-  const getCategoryLink = (categoryName: string) => {
-    const name = categoryName
-    if (name[categoryName.length - 1] === 's') {
-      return name.substring(0,name.length-1)
-    }
-    return name
-  }
+  };
 
   return (
     <div className='text-white w-[85%] h-screen text-center m-auto  grid grid-cols-5 bg-black'>

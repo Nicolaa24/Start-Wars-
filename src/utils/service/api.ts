@@ -22,3 +22,23 @@ export const getItemId = (url: string) => {
   }
   return res;
 };
+
+
+export const makeConcurrentRequest = async (url: string[]) => {
+  
+  const res = await Promise.all(url && url.map(res => {
+    return fetch(res)
+      .then(res => res.json())
+  }))
+
+  return res;
+};
+
+export const getCategoryLink = (categoryName: string) => {
+    const name = categoryName
+    if (name[categoryName.length - 1] === 's') {
+      return name.substring(0, name.length - 1)
+    }
+    return name
+  };
+

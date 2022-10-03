@@ -16,15 +16,15 @@ export const Films = () => {
   const isCharactersLoading = characters.status === 'Loading';
   
   React.useEffect(() => {
-    dispatch(fetchCharacters({ page: characters.currentPage, category:'films' }))
+    dispatch(fetchCharacters({ page: characters.currentPage, category: 'films' }))
   }, [characters.currentPage]);
 
   return (
     <div className=''>
-          <Pagination
-            currentPage={characters.currentPage}
-            totalPage={1}
-          />
+      <Pagination
+        currentPage={characters.currentPage}
+        totalPage={1}
+      />
       {isCharactersLoading
         ? <div className='text-white'>Loading</div>
         : <div>

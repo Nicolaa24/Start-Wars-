@@ -45,7 +45,7 @@ export const FilmImage: React.FC<Props> = (
 
   return (
     <div className='w-[45%] h-full relative'>
-      <img className='h-[90%] w-full object-cover'
+      <img className='max-h-full w-full object-cover'
         src={`https://starwars-visualguide.com/assets/img/films/${id}.jpg`}
       />
       <button className='text-white absolute  top-[-19px] right-1'

@@ -4,19 +4,15 @@ import { useParams, useNavigate } from 'react-router-dom';
 
 import { BASE_URL, getInfo } from '../utils/service/api';
 import {IFilm, Peoples} from '../types/Interfaces'
-import { CharacterFilms } from '../components/Character/CharacterFilms';
-import { CharacterStarships } from '../components/Character/CharacterStarships';
-import { CharacterVehicles } from '../components/Character/CharacterVehicles';
-import { CharacterDetails } from '../components/Character/CharacterDetails';
-import { CharacterImage } from '../components/Character/CharacterImage';
+
 import { useAppSelector } from '../redux/store/hooks';
 import { FilmImage } from '../components/Film/FilmImage';
 import { FilmInfo } from '../components/Film/FilmInfo';
-import { FilmCharacters } from '../components/Film/FilmCharacters';
+import { FilmDetails } from '../components/Film/FilmDetails';
 
 
 export const Film = () => {
-  const [film, setFilm] = React.useState<IFilm>();
+  const [film, setFilm] = React.useState<IFilm >();
   const [favoriteCharacter, setFavoriteCharacter] = React.useState(false);
 
   const favorites = useAppSelector(state => state.favorite.favorites)
@@ -52,9 +48,7 @@ export const Film = () => {
         <FilmInfo film={film} />
       </div>
 
-      <div className='w-[90%] h-[25%] text-center m-auto  grid grid-cols-3'>
-        <FilmCharacters/>
-      </div>
+      <FilmDetails film={film} />
       
     </div>
   )
