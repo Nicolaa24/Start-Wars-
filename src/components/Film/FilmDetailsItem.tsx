@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import { Peoples, Species } from '../../types/Interfaces';
+import { IFilm, Peoples, Species } from '../../types/Interfaces';
 import { getCategoryLink, getItemId, IMG_URL, makeConcurrentRequest } from '../../utils/service/api';
 
 export interface Props {
@@ -9,7 +9,7 @@ export interface Props {
   imgCategory: string;
 }
 
-type Details = Peoples | Species;
+export type Details = Peoples | Species;
 
 export const FilmDetailsItem: React.FC<Props> = ({ characters, title, imgCategory }) => {
   const [filmDetails, setFilmDetails] = React.useState<Details[]>([]);
@@ -35,7 +35,8 @@ export const FilmDetailsItem: React.FC<Props> = ({ characters, title, imgCategor
           <div key={item.name}
             className='w-full m-2 flex items-center hover:px-2'>
             <img className='h-[60px] rounded-full w-[60px] mx-2'
-              src={`${IMG_URL}${imgCategory}/${getItemId(item.url)}.jpg`} />
+              src={`${IMG_URL}${imgCategory}/${getItemId(item.url)}.jpg`}
+            />
             <p className='mx-2'>{item?.name}</p>
           </div>
         </Link>

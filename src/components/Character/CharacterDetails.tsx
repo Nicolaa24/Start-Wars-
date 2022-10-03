@@ -1,23 +1,50 @@
 import React from 'react'
-import { Peoples } from '../../types/Interfaces'
+
+import { Link } from 'react-router-dom';
+import { IFilm, Peoples, Species, StarShip, Vehicle } from '../../types/Interfaces';
+import { getCategoryLink, getItemId, IMG_URL, makeConcurrentRequest } from '../../utils/service/api';
+
 
 interface Props {
-  character: Peoples | undefined
+  character: string[] | undefined;
+  title: string;
+  imgCategory: string;
 }
 
-export const CharacterDetails: React.FC<Props> = ({ character }) => {
+type Details = Vehicle & IFilm & StarShip;
+
+export const CharacterDetails: React.FC<Props> = ({ character, title, imgCategory }) => {
+  const [charactersDetails, setCharactersDetails] = React.useState<Details[]>([]);
+
+  React.useEffect(() => {
+   
+    (async () => {
+      const validCharacters: Details[] = await makeConcurrentRequest((character as string[]))
+      setCharactersDetails(validCharacters)
+    })();
+
+  }, []);
+  
+  
   return (
-    <div className='bg-gray-200 w-full p-6 text-xl '>
-      <h1 className='mb-1'>{character?.name}</h1>
-      <div className='text-base h-full text-gray-700 flex flex-col'>
-        <p >Birth Year: {character?.birth_year}</p>
-        <p >Species: {character?.species.length !== 0 ? character?.species : 'Unknown'}</p>
-        <p >Height: {character?.height} cm</p>
-        <p >Mass: {character?.mass} kg</p>
-        <p >Hair Color: {character?.hair_color}</p>
-        <p >Skin Color: {character?.skin_color}</p>
-        {/* <p >Homeworld: <a href={character?.homeworld}>Home</a></p> */}
+    <div className='h-full w-[30%] bg-gray-200 text-gray-700 rounded-sm mr-5 p-4 overflow-x-auto'>
+      <div className='h-[20%]  border-b-2 border-black flex justify-start'>
+        <p>{title}</p>
       </div>
+      { charactersDetails.length > 0
+        ? charactersDetails.map(item => (
+        <Link to={`/${getCategoryLink(imgCategory)}/${getItemId(item.url)}`}>
+          <div key={item.url}
+            className='w-full m-2 flex items-center hover:px-2'>
+            <img className='h-[60px] rounded-full w-[60px] mx-2'
+              src={`${IMG_URL}${imgCategory}/${getItemId(item.url)}.jpg`} />
+            <p className='mx-2'>{ imgCategory === 'films' ? item.title : item?.name }</p>
+          </div>
+        </Link>
+        ))
+        : <div>There are no related items for this category</div>
+      }
+      
     </div>
   )
 };

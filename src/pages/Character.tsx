@@ -4,10 +4,8 @@ import { useParams, useNavigate } from 'react-router-dom';
 
 import { BASE_URL, getInfo } from '../utils/service/api';
 import {Peoples} from '../types/Interfaces'
-import { CharacterFilms } from '../components/Character/CharacterFilms';
-import { CharacterStarships } from '../components/Character/CharacterStarships';
-import { CharacterVehicles } from '../components/Character/CharacterVehicles';
 import { CharacterDetails } from '../components/Character/CharacterDetails';
+import { CharacterInfo } from '../components/Character/CharacterInfo';
 import { CharacterImage } from '../components/Character/CharacterImage';
 import { useAppSelector } from '../redux/store/hooks';
 
@@ -29,6 +27,7 @@ export const Character = () => {
       : setFavoriteCharacter(false);
     
   }, []);
+
   
   return (
     <div className='w-screen h-screen bg-black'>
@@ -45,13 +44,22 @@ export const Character = () => {
           favoriteCharacter={favoriteCharacter}
           setFavoriteCharacter={setFavoriteCharacter}
         />
-        <CharacterDetails character={character} />
+        <CharacterInfo character={character} />
       </div>
 
       <div className='w-[90%] h-[25%] flex flex-row m-auto'>
-        <CharacterFilms title='Related Films' character={character} />
-        <CharacterStarships title='Related Starships' character={character} />
-        <CharacterVehicles title='Related Vehicles' character={character} />
+        {character &&
+          <CharacterDetails imgCategory='films' title='Related Films' character={character.films}
+          />
+        }
+        {character &&
+          <CharacterDetails imgCategory='vehicles' title='Related Vehicles' character={character.vehicles}
+          />
+        }
+        {character &&
+          <CharacterDetails imgCategory='starships' title='Related Starships' character={character.starships}
+          />
+        }
       </div>
       
     </div>

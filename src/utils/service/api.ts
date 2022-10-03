@@ -34,6 +34,7 @@ export const makeConcurrentRequest = async (url: string[]) => {
   return res;
 };
 
+
 export const getCategoryLink = (categoryName: string) => {
     const name = categoryName
     if (name[categoryName.length - 1] === 's') {

@@ -1,8 +1,9 @@
 import React from 'react'
+
 import {BsFillStarFill  } from 'react-icons/bs'
 import { favoriteSlice } from '../../redux/slices/FavoriteSlice';
 import { useAppDispatch, useAppSelector } from '../../redux/store/hooks';
-import { IFilm, Peoples } from '../../types/Interfaces';
+import { IFilm } from '../../types/Interfaces';
 
 interface Props {
   id: string | undefined;
@@ -20,7 +21,7 @@ export const FilmImage: React.FC<Props> = (
     setFavoriteCharacter }
 ) => {
   const dispatch = useAppDispatch()
-  const { addItem, removeItem } = favoriteSlice.actions
+  const { addItem, removeItem } = favoriteSlice.actions;
   
   const dispatchFavoriteItem = () => {
     if (favoriteCharacter) {

@@ -1,8 +1,9 @@
-import React from 'react'
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { useAppSelector } from '../../redux/store/hooks';
 import { useTheme } from '../../utils/context/useTheme';
+import logo from '../../assets/images/logo/StarWars- Logo.png';
 
 
 export const Header = () => {
@@ -37,9 +38,9 @@ export const Header = () => {
             Search
           </Link>
         </div>
-        <h1 className='max-w-[300px] h-[5%] ml-auto mr-auto  mb-5 text-yellow-400 text-4xl hover:text-[40px]'>
+        <h1 className='max-w-[300px] h-[5%] ml-auto mr-auto  text-yellow-400 text-4xl hover:text-[40px]'>
           <Link to='/categories'>
-            Star Wars Info
+            <img src={logo } className='p-0'/>
           </Link>
         </h1>
       </div>
