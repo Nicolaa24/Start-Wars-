@@ -100,7 +100,7 @@ export interface StarShip {
 };
 
 
-export interface Planet {
+export interface IPlanet {
   climate: string;
   created: Date;
   diameter: string;

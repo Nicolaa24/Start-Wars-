@@ -12,6 +12,8 @@ import { useTheme } from './utils/context/useTheme';
 import { Search } from './pages/Search';
 import { NotFound } from './pages/NotFound';
 import { Film } from './pages/Film';
+import { Planets } from './pages/Planets';
+import { Planet } from './pages/Planet';
 
 export const App = () => {
   const { color } = useTheme();
@@ -28,9 +30,11 @@ export const App = () => {
         
         <Route path='/films' element={<Films />} />
         <Route path='/characters' element={<Characters />} />
+        <Route path='/planets' element={<Planets />} />
 
         <Route path='/film/:id' element={<Film />} />
         <Route path='/character/:id' element={<Character />} />
+        <Route path='/planet/:id' element={<Planet />} />
 
         <Route path='/search' element={<Search />} />
         <Route path='/favorite' element={<Favorites />} />
