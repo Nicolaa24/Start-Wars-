@@ -18,6 +18,8 @@ import { StarShips } from './pages/StarShips';
 import { StarShip } from './pages/StarShip';
 import { Species } from './pages/Species';
 import { Specie } from './pages/Specie';
+import { Vehicles } from './pages/Vehicles';
+import { Vehicle } from './pages/Vehicle';
 
 export const App = () => {
   const { color } = useTheme();
@@ -37,12 +39,14 @@ export const App = () => {
         <Route path='/planets' element={<Planets />} />
         <Route path='/starships' element={<StarShips />} />
         <Route path='/species' element={<Species />} />
+        <Route path='/vehicles' element={<Vehicles />} />
 
         <Route path='/film/:id' element={<Film />} />
         <Route path='/character/:id' element={<Character />} />
         <Route path='/planet/:id' element={<Planet />} />
         <Route path='/starship/:id' element={<StarShip />} />
         <Route path='/specie/:id' element={<Specie />} />
+        <Route path='/vehicle/:id' element={<Vehicle />} />
 
         <Route path='/search' element={<Search />} />
         <Route path='/favorite' element={<Favorites />} />

@@ -58,7 +58,7 @@ export interface ISpecies {
   url: string;
 };
 
-export interface Vehicle {
+export interface IVehicle {
   cargo_capacity: string;
   consumables: string;
   cost_in_credits: string;
