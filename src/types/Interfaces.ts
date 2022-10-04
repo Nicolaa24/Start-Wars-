@@ -40,7 +40,7 @@ export interface IFilm {
   url: string;
 }
 
-export interface Species {
+export interface ISpecies {
   name: string;
   classification: string;
   designation: string;

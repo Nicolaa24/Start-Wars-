@@ -1,5 +1,7 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import { Peoples } from '../../types/Interfaces'
+import { BASE_URL, getItemId } from '../../utils/service/api';
 
 interface Props {
   character: Peoples | undefined
@@ -16,7 +18,6 @@ export const CharacterInfo: React.FC<Props> = ({ character }) => {
         <p >Mass: {character?.mass} kg</p>
         <p >Hair Color: {character?.hair_color}</p>
         <p >Skin Color: {character?.skin_color}</p>
-        {/* <p >Homeworld: <a href={character?.homeworld}>Home</a></p> */}
       </div>
     </div>
   )

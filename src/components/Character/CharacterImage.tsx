@@ -3,6 +3,7 @@ import {BsFillStarFill  } from 'react-icons/bs'
 import { favoriteSlice } from '../../redux/slices/FavoriteSlice';
 import { useAppDispatch, useAppSelector } from '../../redux/store/hooks';
 import { Peoples } from '../../types/Interfaces';
+import { IMG_URL } from '../../utils/service/api';
 
 interface Props {
   id: string | undefined;
@@ -44,7 +45,7 @@ export const CharacterImage: React.FC<Props> = (
   return (
     <div className='w-[45%] h-full relative'>
       <img className='h-full w-full object-fill '
-        src={`https://starwars-visualguide.com/assets/img/characters/${id}.jpg`}
+        src={`${IMG_URL}characters/${id}.jpg`}
       />
       <button className='text-white absolute  top-[-19px] right-1'
           onClick={dispatchFavoriteItem}
