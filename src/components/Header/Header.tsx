@@ -19,7 +19,7 @@ export const Header = () => {
           <Link to='/'>
     
             <div className='flex items-center w-16 object-cove'>
-                <img src={icon}  alt=''/>
+                <img src={icon}  alt='' className='hover:px-1'/>
             </div>
            
           </Link>
@@ -40,7 +40,7 @@ export const Header = () => {
         </div>
         <h1 className='max-w-[300px] h-[5%] ml-auto mr-auto  text-yellow-400 text-4xl hover:text-[40px]'>
           <Link to='/categories'>
-            <img src={logo } className='p-0'/>
+            <img src={logo } className='p-0 hover:px-3'/>
           </Link>
         </h1>
       </div>

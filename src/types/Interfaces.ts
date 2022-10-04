@@ -78,7 +78,7 @@ export interface Vehicle {
 };
 
 
-export interface StarShip {
+export interface IStarShip {
   MGLT: string;
   cargo_capacity: string;
   consumables: string;

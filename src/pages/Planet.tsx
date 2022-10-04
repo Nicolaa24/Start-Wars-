@@ -6,9 +6,7 @@ import { BASE_URL, getInfo } from '../utils/service/api';
 import { IPlanet} from '../types/Interfaces'
 
 import { useAppSelector } from '../redux/store/hooks';
-import { FilmImage } from '../components/Film/FilmImage';
-import { FilmInfo } from '../components/Film/FilmInfo';
-import { FilmDetails } from '../components/Film/FilmDetails';
+
 import { PlanetImage } from '../components/Planet/PlanetImage';
 import { PlanetInfo } from '../components/Planet/PlanetInfo';
 import { PlanetDetails } from '../components/Planet/PlanetDetails';
@@ -31,8 +29,6 @@ export const Planet = () => {
       : setFavoritePlanet(false);
     
   }, []);
-
-  console.log(planet)
   
   return (
     <div className='w-full h-full bg-black'>

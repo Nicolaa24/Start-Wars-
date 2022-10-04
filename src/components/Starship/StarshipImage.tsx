@@ -4,56 +4,56 @@ import { BsFillStarFill } from 'react-icons/bs';
 
 import { favoriteSlice } from '../../redux/slices/FavoriteSlice';
 import { useAppDispatch } from '../../redux/store/hooks';
-import { IPlanet } from '../../types/Interfaces';
+import { IStarShip } from '../../types/Interfaces';
 import { IMG_URL } from '../../utils/service/api';
 
 interface Props {
   id: string | undefined;
-  planet: IPlanet | undefined;
-  favoritePlanet: boolean;
-  setFavoritePlanet: React.Dispatch<React.SetStateAction<boolean>>;
+  starship: IStarShip | undefined;
+  favoriteStarship: boolean;
+  setFavoriteStarship: React.Dispatch<React.SetStateAction<boolean>>;
   category: string;
 }
 
-export const PlanetImage: React.FC<Props> = (
+export const StarshipImage: React.FC<Props> = (
   { id,
-    planet,
+    starship,
     category,
-    favoritePlanet,
-    setFavoritePlanet
+    favoriteStarship,
+    setFavoriteStarship
   } ) => {
    const dispatch = useAppDispatch()
   const { addItem, removeItem } = favoriteSlice.actions;
   
   const dispatchFavoriteItem = () => {
-    if (favoritePlanet) {
+    if (favoriteStarship) {
       const item = {
-        title: planet?.name,
+        title: starship?.name,
         id: id,
         category: category,
       }
       dispatch(removeItem(item))
-      setFavoritePlanet(false);
+      setFavoriteStarship(false);
     } else {
       const item = {
-        title: planet?.name,
+        title: starship?.name,
         id: id,
         category: category,
       }
 
       dispatch(addItem(item))
-      setFavoritePlanet(true);
+      setFavoriteStarship(true);
     }
   };
   return (
      <div className='w-[45%] h-full relative'>
-      <img className='h-full w-full object-cover '
-        src={`${IMG_URL}planets/${id}.jpg`}
+      <img className='h-full w-full object-fill rounded-sm'
+        src={`${IMG_URL}starships/${id}.jpg`}
       />
       <button className='text-white absolute  top-[-19px] right-1'
           onClick={dispatchFavoriteItem}
         >
-        <BsFillStarFill className={favoritePlanet ? 'text-pink-400' : 'text-gray-200 drop-shadow-xl'} size={30} />
+        <BsFillStarFill className={favoriteStarship ? 'text-pink-400' : 'text-gray-200 drop-shadow-xl'} size={30} />
         </button>
   
     </div>

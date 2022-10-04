@@ -3,7 +3,7 @@ import React from 'react'
 import { useParams, useNavigate } from 'react-router-dom';
 
 import { BASE_URL, getInfo } from '../utils/service/api';
-import {IFilm, Peoples} from '../types/Interfaces'
+import { IFilm } from '../types/Interfaces';
 
 import { useAppSelector } from '../redux/store/hooks';
 import { FilmImage } from '../components/Film/FilmImage';

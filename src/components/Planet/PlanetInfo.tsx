@@ -1,5 +1,5 @@
 import React from 'react'
-import { IFilm, IPlanet } from '../../types/Interfaces'
+import { IPlanet } from '../../types/Interfaces'
 
 interface Props {
   planet: IPlanet | undefined
