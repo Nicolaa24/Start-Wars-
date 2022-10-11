@@ -20,6 +20,7 @@ export const FilmImage: React.FC<Props> = (
     favoriteCharacter,
     setFavoriteCharacter }
 ) => {
+  const {isLogined} = useAppSelector(state =>state.user)
   const dispatch = useAppDispatch()
   const { addItem, removeItem } = favoriteSlice.actions;
   
@@ -49,12 +50,22 @@ export const FilmImage: React.FC<Props> = (
       <img className='max-h-full w-full object-cover'
         src={`https://starwars-visualguide.com/assets/img/films/${id}.jpg`}
       />
-      <button className='text-white absolute  top-[-19px] right-1'
+      {
+        isLogined
+        ?  <button className='text-white absolute  top-[-19px] right-1'
           onClick={dispatchFavoriteItem}
         >
         <BsFillStarFill className={favoriteCharacter ? 'text-pink-400' : 'text-gray-200 drop-shadow-xl'} size={30} />
         </button>
-  
+        : <button
+          className='text-white absolute  top-[-19px] right-1'
+          disabled
+          onClick={dispatchFavoriteItem}
+        >
+        <BsFillStarFill className={favoriteCharacter ? 'text-pink-400' : 'text-gray-200 drop-shadow-xl'} size={30} />
+        </button>
+      }
+    
     </div>
   )
 };

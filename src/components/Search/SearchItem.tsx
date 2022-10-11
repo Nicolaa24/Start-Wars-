@@ -1,5 +1,5 @@
 import React from 'react'
-import { FoundItem } from '../../pages/Search'
+import { FoundItem } from '../../pages/SearchPage/Search'
 import s from '../../assets/images/icons/droid.svg'
 import { Link } from 'react-router-dom';
 

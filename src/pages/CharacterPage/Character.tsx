@@ -2,12 +2,11 @@ import React from 'react'
 
 import { useParams, useNavigate } from 'react-router-dom';
 
-import { BASE_URL, getInfo } from '../utils/service/api';
-import {Peoples} from '../types/Interfaces'
-import { CharacterDetails } from '../components/Character/CharacterDetails';
-import { CharacterInfo } from '../components/Character/CharacterInfo';
-import { CharacterImage } from '../components/Character/CharacterImage';
-import { useAppSelector } from '../redux/store/hooks';
+import { BASE_URL, getInfo } from '../../utils/service/api';
+import {Peoples} from '../../types/Interfaces'
+import { CharacterDetails, CharacterImage, CharacterInfo } from '../../components/';
+
+import { useAppSelector } from '../../redux/store/hooks';
 
 
 export const Character = () => {

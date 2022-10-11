@@ -1,0 +1,20 @@
+export const ROUTES = {
+  HOME: '/',
+  AUTH: '/register',
+  CATEGORIES: '/categories',
+  FILMS: '/films',
+  CHARACTERS: '/characters',
+  PLANETS: '/planets',
+  STARSHIPS: '/starships',
+  SPECIES: '/species',
+  VEHICLES: '/vehicles',
+  FILM: '/film/:id',
+  CHARACTER: '/character/:id',
+  PLANET: '/planet/:id',
+  STARSHIP: '/starship/:id',
+  SPECIE: '/specie/:id',
+  VEHICLE: '/vehicle/:id',
+  SEARCH: '/search',
+  FAVORITE: '/favorite',
+  NOTFOUND:'*'
+}

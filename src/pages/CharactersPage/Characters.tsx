@@ -1,11 +1,11 @@
 import React from 'react'
 
 import { Link, useParams } from 'react-router-dom'
-import { Pagination } from '../components/Pagination/Pagination';
+import { Pagination } from '../../components/Pagination/Pagination';
 
-import { categoriesSlice, fetchCharacters } from '../redux/slices/CategoriesSlice'
-import { useAppDispatch, useAppSelector } from '../redux/store/hooks'
-import { getItemId, IMG_URL } from '../utils/service/api';
+import { categoriesSlice, fetchCharacters } from '../../redux/slices/CategoriesSlice'
+import { useAppDispatch, useAppSelector } from '../../redux/store/hooks'
+import { getItemId, IMG_URL } from '../../utils/service/api';
 
 
 export const Characters = () => {

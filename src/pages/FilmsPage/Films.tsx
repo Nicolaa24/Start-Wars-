@@ -1,11 +1,11 @@
 import React from 'react'
 
 import { Link } from 'react-router-dom';
-import { Pagination } from '../components/Pagination/Pagination';
+import { Pagination } from '../../components/Pagination/Pagination';
 
-import { fetchCharacters } from '../redux/slices/CategoriesSlice';
-import { useAppDispatch, useAppSelector } from '../redux/store/hooks';
-import { getItemId, IMG_URL } from '../utils/service/api';
+import { fetchCharacters } from '../../redux/slices/CategoriesSlice';
+import { useAppDispatch, useAppSelector } from '../../redux/store/hooks';
+import { getItemId, IMG_URL } from '../../utils/service/api';
 
 
 export const Films = () => {

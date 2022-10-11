@@ -2,13 +2,12 @@ import React from 'react'
 
 import { useParams, useNavigate } from 'react-router-dom';
 
-import { BASE_URL, getInfo } from '../utils/service/api';
-import { IFilm } from '../types/Interfaces';
+import { BASE_URL, getInfo } from '../../utils/service/api';
+import { IFilm } from '../../types/Interfaces';
 
-import { useAppSelector } from '../redux/store/hooks';
-import { FilmImage } from '../components/Film/FilmImage';
-import { FilmInfo } from '../components/Film/FilmInfo';
-import { FilmDetails } from '../components/Film/FilmDetails';
+import { useAppSelector } from '../../redux/store/hooks';
+import { FilmImage, FilmInfo, FilmDetails } from '../../components';
+
 
 
 export const Film = () => {

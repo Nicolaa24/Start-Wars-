@@ -1,9 +1,13 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import { useAppSelector } from '../redux/store/hooks'
-import { getCategoryLink } from '../utils/service/api';
+
+import { Link, Navigate } from 'react-router-dom';
+import { useAppSelector } from '../../redux/store/hooks';
+
+import { getCategoryLink } from '../../utils/service/api';
 
 export const Favorites = () => {
+
+  const {isLogined} = useAppSelector(state => state.user)
 
   const favorites = useAppSelector(state => state.favorite.favorites);
 
@@ -15,7 +19,7 @@ export const Favorites = () => {
     )
   };
 
-  return (
+  return isLogined ?  (
     <div className='text-white w-[85%] h-screen text-center m-auto  grid grid-cols-5 bg-black'>
       {favorites.map((item) => (
         <Link to={`/${getCategoryLink(item.category)}/${item.id}`}>
@@ -33,4 +37,8 @@ export const Favorites = () => {
       
     </div>
   )
+    :
+    (
+      <Navigate to='/register' />
+    )
 }

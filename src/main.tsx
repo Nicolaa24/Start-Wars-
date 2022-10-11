@@ -1,10 +1,11 @@
 import React from 'react'
-import ReactDOM from 'react-dom/client'
+import ReactDOM from 'react-dom/client';
 
-import { Provider } from 'react-redux'
-import { BrowserRouter } from 'react-router-dom'
+import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
 
-import { store } from './redux/store/store'
+import { store } from './redux/store/store';
+import './utils/firebase/firebase';
 
 import {App} from './App'
 import './index.css'

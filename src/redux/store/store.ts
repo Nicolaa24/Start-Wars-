@@ -2,11 +2,13 @@ import { configureStore } from "@reduxjs/toolkit";
 import { categoriesReducer } from '../slices/CategoriesSlice'
 import { favoriteReducer } from '../slices/FavoriteSlice'
 import { setLocalStorage } from "../../utils/service/localStorage";
+import { userReducer } from '../slices/UserSlice';
 
 export const store = configureStore({
   reducer: {
     categories: categoriesReducer,
-    favorite: favoriteReducer
+    favorite: favoriteReducer,
+    user: userReducer,
   }
 });
 

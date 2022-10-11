@@ -2,17 +2,12 @@ import React from 'react'
 
 import { useParams, useNavigate } from 'react-router-dom';
 
-import { BASE_URL, getInfo } from '../utils/service/api';
-import { IPlanet, IStarShip} from '../types/Interfaces'
+import { BASE_URL, getInfo } from '../../utils/service/api';
+import { IStarShip} from '../../types/Interfaces'
 
-import { useAppSelector } from '../redux/store/hooks';
+import { useAppSelector } from '../../redux/store/hooks';
 
-import { PlanetImage } from '../components/Planet/PlanetImage';
-import { PlanetInfo } from '../components/Planet/PlanetInfo';
-import { PlanetDetails } from '../components/Planet/PlanetDetails';
-import { StarshipImage } from '../components/Starship/StarshipImage';
-import { StarShipInfo } from '../components/Starship/StarshipInfo';
-import { StarShipDetails } from '../components/Starship/StarshipDetails';
+import { StarshipImage, StarShipDetails, StarShipInfo } from '../../components';
 
 
 export const StarShip = () => {

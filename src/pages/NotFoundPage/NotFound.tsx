@@ -1,6 +1,6 @@
 import React from 'react';
 
-import notFoundImg from '../assets/images/404/not-found.jpg';
+import notFoundImg from '../../assets/images/404/not-found.jpg';
  
 export const NotFound = () => {
   return (

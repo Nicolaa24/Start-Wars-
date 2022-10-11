@@ -2,14 +2,12 @@ import React from 'react'
 
 import { useParams, useNavigate } from 'react-router-dom';
 
-import { BASE_URL, getInfo } from '../utils/service/api';
-import { IPlanet} from '../types/Interfaces'
+import { BASE_URL, getInfo } from '../../utils/service/api';
+import { IPlanet} from '../../types/Interfaces'
 
-import { useAppSelector } from '../redux/store/hooks';
+import { useAppSelector } from '../../redux/store/hooks';
 
-import { PlanetImage } from '../components/Planet/PlanetImage';
-import { PlanetInfo } from '../components/Planet/PlanetInfo';
-import { PlanetDetails } from '../components/Planet/PlanetDetails';
+import { PlanetImage, PlanetDetails, PlanetInfo } from '../../components';
 
 
 export const Planet = () => {

@@ -14,12 +14,13 @@ interface Props {
 
 export const CharacterImage: React.FC<Props> = (
   { id,
-  character,
-  favoriteCharacter,
-  setFavoriteCharacter }
+    character,
+    favoriteCharacter,
+    setFavoriteCharacter }
 ) => {
-  const dispatch = useAppDispatch()
-  const { addItem, removeItem } = favoriteSlice.actions
+  const { isLogined } = useAppSelector(state => state.user);
+  const dispatch = useAppDispatch();
+  const { addItem, removeItem } = favoriteSlice.actions;
   
   const dispatchFavoriteItem = () => {
     if (favoriteCharacter) {
@@ -47,11 +48,21 @@ export const CharacterImage: React.FC<Props> = (
       <img className='h-full w-full object-fill '
         src={`${IMG_URL}characters/${id}.jpg`}
       />
-      <button className='text-white absolute  top-[-19px] right-1'
-          onClick={dispatchFavoriteItem}
-        >
-        <BsFillStarFill className={favoriteCharacter ? 'text-pink-400' : 'text-gray-200 drop-shadow-xl'} size={30} />
-        </button>
+      {
+        isLogined
+          ? <button className='text-white absolute  top-[-19px] right-1'
+            onClick={dispatchFavoriteItem}
+          >
+            <BsFillStarFill className={favoriteCharacter ? 'text-pink-400' : 'text-gray-200 drop-shadow-xl'} size={30} />
+          </button>
+          : <button className='text-white absolute  top-[-19px] right-1'
+            disabled
+            onClick={dispatchFavoriteItem}
+          >
+            <BsFillStarFill className={favoriteCharacter ? 'text-pink-400' : 'text-gray-200 drop-shadow-xl'} size={30} />
+          </button>
+      }
+      
   
     </div>
   )

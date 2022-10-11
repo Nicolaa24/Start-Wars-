@@ -2,13 +2,11 @@ import React from 'react'
 
 import { useParams, useNavigate } from 'react-router-dom';
 
-import { BASE_URL, getInfo } from '../utils/service/api';
-import { ISpecies} from '../types/Interfaces'
+import { BASE_URL, getInfo } from '../../utils/service/api';
+import { ISpecies} from '../../types/Interfaces'
 
-import { useAppSelector } from '../redux/store/hooks';
-import { SpecieImage } from '../components/Specie/SpecieImage';
-import { SpecieInfo } from '../components/Specie/SpecieInfo';
-import { SpecieDetails } from '../components/Specie/SpecieDetails';
+import { useAppSelector } from '../../redux/store/hooks';
+import { SpecieImage , SpecieDetails, SpecieInfo} from '../../components';
 
 
 export const Specie = () => {

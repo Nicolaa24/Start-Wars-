@@ -2,13 +2,13 @@ import React from 'react';
 
 import axios, { AxiosError } from 'axios';
 
-import { BASE_URL, getItemId } from '../utils/service/api';
-import {Peoples, Film} from '../types/Interfaces'
-import { categorySeatchSelector } from '../assets/json';
-import { CategorySelect } from '../components/UI/select/CategorySelect';
-import { SearchItem } from '../components/Search/SearchItem';
-import {useDebounce} from '../utils/service/debounce';
-import { Input } from '../components/UI/input/Input';
+import { BASE_URL, getItemId } from '../../utils/service/api';
+import {Peoples, IFilm} from '../../types/Interfaces'
+import { categorySeatchSelector } from '../../assets/json';
+import { CategorySelect } from '../../components/UI/select/CategorySelect';
+import { SearchItem } from '../../components/Search/SearchItem';
+import {useDebounce} from '../../utils/service/debounce';
+import { Input } from '../../components/UI/input/Input';
 
 export interface FoundItem {
   id: string;
@@ -17,7 +17,7 @@ export interface FoundItem {
   category: string;
 }
 
-type SearchItem = Peoples & Film;
+type SearchItem = Peoples & IFilm;
 
 export const Search = () => {
 
@@ -27,7 +27,6 @@ export const Search = () => {
 
   const getSearchItem = async (param: string) => {
     try {
-      console.log(param)
       const res = await axios.get(`${BASE_URL}${selectedCategory}/?search=${param}`);
     
       const searchingResults = res.data.results.map((item: SearchItem) => {

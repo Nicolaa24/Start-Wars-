@@ -2,13 +2,11 @@ import React from 'react'
 
 import { useParams, useNavigate } from 'react-router-dom';
 
-import { BASE_URL, getInfo } from '../utils/service/api';
-import { IVehicle} from '../types/Interfaces'
+import { BASE_URL, getInfo } from '../../utils/service/api';
+import { IVehicle} from '../../types/Interfaces'
 
-import { useAppSelector } from '../redux/store/hooks';
-import { VehicleImage } from '../components/Vehicle/VehicleImage';
-import { VehicleInfo } from '../components/Vehicle/VehicleInfo';
-import { VehicleDetails } from '../components/Vehicle/VehicleDetails';
+import { useAppSelector } from '../../redux/store/hooks';
+import { VehicleImage, VehicleDetails, VehicleInfo } from '../../components';
 
 
 export const Vehicle = () => {

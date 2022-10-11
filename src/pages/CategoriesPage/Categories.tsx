@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
-import { categoriesName } from '../assets/json';
+import { categoriesName } from '../../assets/json';
 
 export const Categories = () => {
 
@@ -11,7 +11,7 @@ export const Categories = () => {
       <div className='w-[80%] h-[80%] text-center m-auto  grid grid-cols-3'>
         {
           categoriesName.map(item => (
-            <Link to={item.link}>
+            <Link key={item.link} to={item.link}>
               <div className='h-full mr-3 cursor-pointer '>
               
                 <div className='h-full w-full relative'>

@@ -3,7 +3,7 @@ import React from 'react'
 import { BsFillStarFill } from 'react-icons/bs';
 
 import { favoriteSlice } from '../../redux/slices/FavoriteSlice';
-import { useAppDispatch } from '../../redux/store/hooks';
+import { useAppDispatch, useAppSelector } from '../../redux/store/hooks';
 import { IVehicle } from '../../types/Interfaces';
 import { IMG_URL } from '../../utils/service/api';
 
@@ -21,8 +21,9 @@ export const VehicleImage: React.FC<Props> = (
     category,
     favoriteVehicle,
     setFavoriteVehicle
-  } ) => {
-   const dispatch = useAppDispatch()
+  }) => {
+  const { isLogined } = useAppSelector(state => state.user);
+  const dispatch = useAppDispatch();
   const { addItem, removeItem } = favoriteSlice.actions;
   
   const dispatchFavoriteItem = () => {
@@ -46,16 +47,25 @@ export const VehicleImage: React.FC<Props> = (
     }
   };
   return (
-     <div className='w-[45%] h-full relative'>
+    <div className='w-[45%] h-full relative'>
       <img className='h-[275px] w-full object-fill rounded-sm'
         src={`${IMG_URL}vehicles/${id}.jpg`}
       />
-      <button className='text-white absolute  top-[-19px] right-1'
-          onClick={dispatchFavoriteItem}
-        >
-        <BsFillStarFill className={favoriteVehicle ? 'text-pink-400' : 'text-gray-200 drop-shadow-xl'} size={30} />
-        </button>
-  
+      {
+        isLogined
+          ? <button className='text-white absolute  top-[-19px] right-1'
+            onClick={dispatchFavoriteItem}
+          >
+            <BsFillStarFill className={favoriteVehicle ? 'text-pink-400' : 'text-gray-200 drop-shadow-xl'} size={30} />
+          </button>
+          : <button className='text-white absolute  top-[-19px] right-1'
+            disabled
+            onClick={dispatchFavoriteItem}
+          >
+            <BsFillStarFill className={favoriteVehicle ? 'text-pink-400' : 'text-gray-200 drop-shadow-xl'} size={30} />
+          </button>
+      }
+      
     </div>
   )
-}
+};
